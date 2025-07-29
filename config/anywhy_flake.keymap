@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     combos {
@@ -22,6 +23,51 @@
             bindings = <&kp GRAVE>;
             key-positions = <13 25>;
             layers = <3>;
+        };
+
+        layer1 {
+            bindings = <&sl 1>;
+            key-positions = <51 52>;
+        };
+
+        layer2 {
+            bindings = <&sl 2>;
+            key-positions = <53 54>;
+        };
+
+        ctrlc {
+            bindings = <&kp LC(C)>;
+            key-positions = <0 1>;
+        };
+
+        del {
+            bindings = <&kp DELETE>;
+            key-positions = <10 11>;
+        };
+
+        alttab {
+            bindings = <&kp RG(TAB)>;
+            key-positions = <46 47>;
+        };
+
+        undo {
+            bindings = <&kp LG(Z)>;
+            key-positions = <36 37>;
+        };
+
+        copy {
+            bindings = <&kp LG(C)>;
+            key-positions = <48 49>;
+        };
+
+        paste {
+            bindings = <&kp LG(V)>;
+            key-positions = <49 50>;
+        };
+
+        cut {
+            bindings = <&kp LG(X)>;
+            key-positions = <48 49 50>;
         };
     };
 
@@ -149,11 +195,11 @@
 
         base {
             bindings = <
-&autoshift GRAVE ESCAPE     &autoshift LS(N1) N1  &autoshift LS(N2) N2  &autoshift LS(N3) N3  &autoshift LS(N4) N4      &autoshift LS(N5) N5    &autoshift LS(N6) N6  &autoshift LS(N7) N7       &autoshift LS(N8) N8        &autoshift N9 N9         &autoshift LS(N0) N0        &kp BACKSPACE
-&autoshift LS(EQUAL) EQUAL  &kp Q                 &kp W                 &kp E                 &kp R                     &kp T                   &kp Y                 &kp U                      &kp I                       &kp O                    &kp P                       &autoshift LS(BACKSLASH) BACKSLASH
-&autoshift LS(MINUS) MINUS  &kp A                 &kp S                 &kp D                 &kp F                     &kp G                   &kp H                 &kp J                      &kp K                       &kp L                    &autoshift LS(SEMI) SEMI    &autoshift LS(APOS) APOS
-&autoshift LS(LBKT) LBKT    &kp Z                 &kp X                 &kp C                 &kp V                     &kp B                   &kp N                 &kp M                      &autoshift LS(COMMA) COMMA  &autoshift LS(DOT) DOT   &autoshift LS(FSLH) FSLH    &autoshift LS(RBKT) RBKT
-                            &thumbtap LCTRL LEFT  &thumbtap LALT RIGHT  &mo 1                 &thumbtap LEFT_SHIFT TAB  &sk LEFT_GUI            &kp SPACE             &thumbtap RIGHT_SHIFT RET  &mo 2                       &thumbtap LALT UP_ARROW  &thumbtap LCTRL DOWN_ARROW
+&autoshift GRAVE ESCAPE     &autoshift LS(N1) N1  &autoshift LS(N2) N2  &autoshift LS(N3) N3                  &autoshift LS(N4) N4      &autoshift LS(N5) N5           &autoshift LS(N6) N6          &autoshift LS(N7) N7       &autoshift LS(N8) N8                    &autoshift N9 N9         &autoshift LS(N0) N0        &kp BACKSPACE
+&autoshift LS(EQUAL) EQUAL  &kp Q                 &kp W                 &kp E                                 &kp R                     &kp T                          &kp Y                         &kp U                      &kp I                                   &kp O                    &kp P                       &autoshift LS(BACKSLASH) BACKSLASH
+&autoshift LS(MINUS) MINUS  &kp A                 &kp S                 &kp D                                 &kp F                     &kp G                          &kp H                         &kp J                      &kp K                                   &kp L                    &autoshift LS(SEMI) SEMI    &autoshift LS(APOS) APOS
+&sk LEFT_SHIFT              &kp Z                 &kp X                 &kp C                                 &kp V                     &kp B                          &kp N                         &kp M                      &autoshift LS(COMMA) COMMA              &autoshift LS(DOT) DOT   &autoshift LS(FSLH) FSLH    &sk RIGHT_SHIFT
+                            &thumbtap LCTRL LEFT  &thumbtap LALT RIGHT  &autoshift LS(LEFT_BRACE) LEFT_BRACE  &thumbtap LEFT_SHIFT TAB  &idletap LEFT_GUI RS(SPACE)    &idletap RIGHT_GUI RS(SPACE)  &thumbtap RIGHT_SHIFT RET  &autoshift LS(RIGHT_BRACE) RIGHT_BRACE  &thumbtap LALT UP_ARROW  &thumbtap LCTRL DOWN_ARROW
             >;
         };
 
@@ -169,7 +215,7 @@
 
         fn {
             bindings = <
-&none  &none    &none   &none   &none   &none             &none  &none       &none         &none         &none         &none
+&none  &none    &none   &none   &none   &none             &none  &none       &none         &none         &none         &out OUT_TOG
 &none  &kp F12  &kp F7  &kp F8  &kp F9  &soft_off         &bt2   &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP  &none
 &none  &kp F10  &kp F4  &kp F5  &kp F6  &kp CAPS          &bt1   &kp RSHFT   &kp RCTRL     &kp RALT      &kp RGUI      &none
 &none  &kp F11  &kp F1  &kp F2  &kp F3  &studio_unlock    &bt0   &kp C_PP    &kp C_PREV    &kp C_NEXT    &kp C_BRI_DN  &none
