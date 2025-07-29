@@ -13,6 +13,11 @@
         zmk,physical-layout = &large_layout;
     };
 
+    wired_split {
+        compatible = "zmk,wired-split";
+        device = <&pro_micro_serial>;
+    };
+
     large_layout: large_layout {
         compatible = "zmk,physical-layout";
         display-name = "Flake L Layout";
